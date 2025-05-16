@@ -15,8 +15,9 @@ document.addEventListener("keypress",function(){
     if(suru == false){
         console.log("gamestarted");
         suru = true;
+       levelup(); 
     }
-    levelup();
+    
 });
 
 //to flash the button
@@ -72,6 +73,7 @@ console.log(gmseq);
 //assesing the buttons on click by mouses
 
 function btnpress(){
+    
     console.log("game press btn was pressed");
     let btn= this;
     userflash(btn);
@@ -95,7 +97,7 @@ function checkkar(kami){
          //need to update the level after right answer by user if we compareing last index kami
         if(userseq.length === gmseq.length){
             //levelup to call hoga pr 1 second baad
-            setTimeout(levelup(),1000 );
+            setTimeout(levelup,1000 );
             
         }
     }
@@ -103,12 +105,15 @@ function checkkar(kami){
         // h2.innerText = `game over! press any key to start`;
         //innertext ke andar hm value ys tags ko nahi de sakte so hmne innerhtml liya
         h2.innerHTML = `game over! your score is<b>:   ${level} </b> <br>...press any key to start`;
-        document.querySelector("body").style.backgroundImage="red";
+        document.querySelector("body").style.backgroundImage ="none";
+        
         setTimeout(function(){
-            document.querySelector("body").style.backgroundColor='red';
-        },150);
+            document.querySelector("body").style.backgroundcolor="red";
+        },250);
+
         reset();
     }
+    
 
 
     //home work problem track the users higheest score and display it
